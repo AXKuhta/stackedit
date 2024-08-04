@@ -4,7 +4,6 @@ var utils = require('./utils')
 var config = require('../config')
 var VueLoaderPlugin = require('vue-loader/lib/plugin')
 var vueLoaderConfig = require('./vue-loader.conf')
-var StylelintPlugin = require('stylelint-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -99,9 +98,6 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new StylelintPlugin({
-      files: ['**/*.vue', '**/*.scss']
-    }),
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(require('../package.json').version)
     })
