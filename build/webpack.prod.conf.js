@@ -10,7 +10,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var OfflinePlugin = require('offline-plugin');
 var WebpackPwaManifest = require('webpack-pwa-manifest')
-var FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -100,10 +99,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
-    new FaviconsWebpackPlugin({
-      logo: resolve('src/assets/favicon.png'),
-      title: 'StackEdit',
-    }),
     new WebpackPwaManifest({
       name: 'StackEdit',
       description: 'Full-featured, open-source Markdown editor',
